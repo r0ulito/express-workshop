@@ -314,8 +314,13 @@ app.get("/", (request, response) => {
 });
 
 app.get("/users", (req, res) => {
-	//SP Is the boss <3
-	res.send(users);
+    //SP Is the boss <3
+
+    // je destructure req.query à la recherche du GET param "limit"
+    const { limit } = req.query;
+
+    // Je renvoie mon tableau d'utilisateur en utilisant SOIT limite, SOIT 10
+    res.send(users.slice(0, limit || 10))
 });
 
 app.get("/users/:userId", (req, res) => {

@@ -317,7 +317,11 @@ app.get("/users", (req, res) => {
     //SP Is the boss <3
 
     // je destructure req.query à la recherche du GET param "limit"
-    const { limit } = req.query;
+    const { limit, city } = req.query;
+
+    if(city) {
+        res.send(users.filter(user => user.address.city === city))
+    }
 
     // Je renvoie mon tableau d'utilisateur en utilisant SOIT limite, SOIT 10
     res.send(users.slice(0, limit || 10))

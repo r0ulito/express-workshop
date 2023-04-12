@@ -309,6 +309,12 @@ const PORT = 8080;
 
 const app = express();
 
+app.get('/', (request, response) => {
+    response.send('Bienvenue chez moi (FP)');
+})
+
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`)

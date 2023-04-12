@@ -313,6 +313,12 @@ app.get('/', (request, response) => {
     response.send('Bienvenue chez moi (FP)');
 })
 
+app.get("/users", (req, res) => {
+    //SP Is the boss <3
+    res.send(users)
+
+});
+
 
 
 
